@@ -41,14 +41,14 @@ public class AuthorSolution {
 
     //get active authors
     public List<String> getUsernames(int threshold){
-        List<Author> toSort = new ArrayList<>();
+        List<Author> toBeSorted = new ArrayList<>();
         for (Author user : getAllUsers()) {
-            toSort.add(user);
+            toBeSorted.add(user);
         }
-        toSort.sort(comparingInt((Author author) -> author.getSubmitted()).reversed());
+        toBeSorted.sort(comparingInt((Author author) -> author.getSubmitted()).reversed());
         List<String> usernames = new ArrayList<>();
         long limit = threshold;
-        for (Author user : toSort) {
+        for (Author user : toBeSorted) {
             if (limit-- == 0) break;
             String username = user.getUsername();
             usernames.add(username);
@@ -78,14 +78,14 @@ public class AuthorSolution {
 
     // get authors usernames sort by created at & threshold.
     public List<String> getUsernamesSortedByRecordDate(int threshold) throws IOException {
-        List<Author> toSort = new ArrayList<>();
+        List<Author> toBeSorted = new ArrayList<>();
         for (Author author : getAllUsers()) {
-            toSort.add(author);
+            toBeSorted.add(author);
         }
-        toSort.sort(comparingLong(Author::getCreatedAt));
+        toBeSorted.sort(comparingLong(Author::getCreatedAt));
         List<String> usernames = new ArrayList<>();
         long limit = threshold;
-        for (Author author : toSort) {
+        for (Author author : toBeSorted) {
             if (limit-- == 0) break;
             String username = author.getUsername();
             usernames.add(username);
@@ -110,10 +110,10 @@ public class AuthorSolution {
 
     //get author usernames with page threshold
     private List<Author> getUsers(int page){
-        Call<PageData> callSync = authorService.getArticleUsers(page);
+        Call<PageData> callApi = authorService.getArticleUsers(page);
         Response<PageData> response = null;
         try {
-            response = callSync.execute();
+            response = callApi.execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
