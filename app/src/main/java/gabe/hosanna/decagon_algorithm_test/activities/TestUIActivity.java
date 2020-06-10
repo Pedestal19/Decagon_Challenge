@@ -1,10 +1,12 @@
-package gabe.hosanna.decagon_algorithm_test;
+package gabe.hosanna.decagon_algorithm_test.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import gabe.hosanna.decagon_algorithm_test.R;
+
+public class TestUIActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
