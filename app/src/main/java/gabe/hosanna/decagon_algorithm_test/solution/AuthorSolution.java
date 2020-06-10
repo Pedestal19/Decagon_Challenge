@@ -58,7 +58,7 @@ public class AuthorSolution {
     }
 
     // get authors with highest comment count.
-    public String getUsernameWithHighestCommentCount() throws IOException {
+    public String getUsernameWithHighestCommentCount(){
         boolean seen = false;
         Author best = null;
         Comparator<Author> comparator = comparingInt(Author::getCommentCount);
@@ -77,7 +77,7 @@ public class AuthorSolution {
     }
 
     // get authors usernames sort by created at & threshold.
-    public List<String> getUsernamesSortedByRecordDate(int threshold) throws IOException {
+    public List<String> getUsernamesSortedByRecordDate(int threshold) {
         List<Author> toBeSorted = new ArrayList<>();
         for (Author author : getAllUsers()) {
             toBeSorted.add(author);
