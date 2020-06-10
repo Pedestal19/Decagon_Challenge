@@ -13,7 +13,6 @@ public class Author {
 
     private long id;
     private String username;
-    private String about;
     private int submitted;
     @SerializedName("submission_count")
     private int submissionCount;
@@ -23,6 +22,7 @@ public class Author {
     private long createdAt;
     @SerializedName("updated_at")
     private Date updatedAt;
+    private String about;
 
     public long getId() {
         return id;
@@ -38,14 +38,6 @@ public class Author {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
     }
 
     public int getSubmitted() {
@@ -86,5 +78,13 @@ public class Author {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 }
